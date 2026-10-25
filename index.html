@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#ff7eb6">
+<title>هدية سرية لحبيبي ❤️</title>
+<style>
+:root{--pink:#ff6fae;--hot:#e84393;--light:#fff0f6;--deep:#8e2457}
+*{box-sizing:border-box}
+body{margin:0;min-height:100vh;font-family:Tahoma,Arial,sans-serif;color:#77234b;background:radial-gradient(circle at top,#fff 0,#ffe6f1 42%,#ffc5df 100%);overflow-x:hidden}
+.hearts{position:fixed;inset:0;pointer-events:none;overflow:hidden;z-index:0}
+.heart{position:absolute;bottom:-50px;color:#ff6fae;opacity:.55;animation:floatUp linear infinite}
+@keyframes floatUp{to{transform:translateY(-115vh) rotate(25deg);opacity:0}}
+main{position:relative;z-index:1;min-height:100vh;display:grid;place-items:center;padding:24px 14px}
+.card{width:min(720px,100%);padding:clamp(22px,5vw,42px);border:1px solid #fff;background:rgba(255,255,255,.84);box-shadow:0 18px 60px #c93b7a25;border-radius:30px;text-align:center;backdrop-filter:blur(8px)}
+.kicker{font-size:.95rem;color:#c04c82}
+h1{font-size:clamp(2rem,7vw,3.1rem);margin:12px 0;color:#d93682}
+.subtitle{margin:0 auto 22px;line-height:1.9;max-width:520px;color:#92506e}
+.lock-icon{font-size:4rem;filter:drop-shadow(0 6px 10px #d9368230);animation:float 2.2s ease-in-out infinite}
+@keyframes float{50%{transform:translateY(-7px) rotate(2deg)}}
+.lock-panel{max-width:420px;margin:20px auto 0;padding:24px 20px;background:#fff7fb;border:1px solid #ffd5e7;border-radius:24px}
+input{width:100%;padding:14px 16px;border:1px solid #f2a6c9;border-radius:14px;background:white;font:inherit;text-align:center;font-size:1.1rem;color:#77234b;outline:none}
+input:focus{border-color:#e84393;box-shadow:0 0 0 3px #ffb5d433}
+button{font-family:inherit;border:0;border-radius:999px;padding:13px 22px;font-size:1rem;font-weight:bold;cursor:pointer;transition:transform .2s,box-shadow .2s}
+button:hover{transform:translateY(-2px);box-shadow:0 7px 18px #d9368230}
+.primary{background:linear-gradient(135deg,#ff6fae,#e84393);color:#fff}
+.secondary{background:#fff0f6;color:#b52e70;border:1px solid #ffc2dc}
+.full{width:100%;margin-top:12px}
+.hint{font-size:.92rem;color:#a34f77;line-height:1.8;margin:14px 0 0}
+.error{display:none;color:#b4235a;font-weight:bold;margin:12px 0 0}
+.error.show{display:block}
+#gift{display:none}
+#gift.unlocked{display:block;animation:appear .8s ease both}
+@keyframes appear{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:translateY(0)}}
+.envelope-wrap{margin:26px auto 16px;width:min(300px,80vw);height:200px;perspective:900px;position:relative}
+.envelope{position:absolute;inset:28px 0 0;background:#ffb5d4;border-radius:8px;box-shadow:0 12px 24px #b82e6a22;cursor:pointer;outline:none}
+.envelope:before{content:"";position:absolute;inset:0;background:#ff9bc6;clip-path:polygon(0 0,50% 56%,100% 0);border-radius:8px 8px 0 0;transform-origin:top;transition:transform .8s ease;z-index:3}
+.envelope:after{content:"";position:absolute;inset:0;background:#ffc8df;clip-path:polygon(0 100%,0 0,50% 53%,100% 0,100% 100%);border-radius:0 0 8px 8px;z-index:2}
+.seal{position:absolute;z-index:4;left:50%;top:50%;transform:translate(-50%,-5%);width:48px;height:48px;border-radius:50%;display:grid;place-items:center;background:#e84393;color:white;font-size:24px;box-shadow:0 3px 10px #b82e6a33;transition:opacity .3s}
+.letter{position:absolute;z-index:1;left:8%;right:8%;bottom:12px;height:145px;padding:15px 12px;background:#fffafd;border-radius:10px 10px 3px 3px;display:flex;flex-direction:column;align-items:center;justify-content:center;box-shadow:0 2px 12px #a92d6020;transition:transform .8s ease,bottom .8s ease}
+.letter strong{color:#d93682;font-size:1.1rem}.letter span{font-size:2rem;margin-top:8px}
+.envelope.open:before{transform:rotateX(180deg);z-index:0}.envelope.open .seal{opacity:0}.envelope.open .letter{transform:translateY(-115px);z-index:5}
+.message{display:none;text-align:right;background:#fff7fb;border:1px solid #ffd5e7;border-radius:20px;padding:22px;margin-top:22px;line-height:2;font-size:1.08rem}
+.message.show{display:block}.message h2{text-align:center;color:#d93682;margin:0 0 12px}
+.controls{display:flex;justify-content:center;flex-wrap:wrap;gap:10px;margin:18px 0}
+.song{display:none;margin:22px auto 0;max-width:560px}.song.show{display:block}
+.song h3{margin:0 0 12px;color:#d93682}
+.player-frame{width:100%;aspect-ratio:16/9;border:0;border-radius:16px;box-shadow:0 8px 24px #a92d6020;background:#f9dce9}
+.note{font-size:.88rem;color:#9a5a78;line-height:1.8}
+footer{margin-top:24px;font-size:.85rem;color:#b66b8e}
+@media(prefers-reduced-motion:reduce){*,*:before,*:after{animation-duration:.01ms!important;transition-duration:.01ms!important}}
+</style>
+</head>
+<body>
+<div class="hearts" id="hearts" aria-hidden="true"></div>
+<main><section class="card">
+<div class="kicker">هدية سرية من القلب <span>💗</span></div>
+<section id="lockScreen">
+<div class="lock-icon">🔐💗</div>
+<h1>ممنوع الدخول إلا لحبيبي</h1>
+<p class="subtitle">في مفاجأة وردية مستنياك… بس الأول، كلمة السر بينا إيه؟ 💌</p>
+<div class="lock-panel">
+<form id="passwordForm">
+<input id="passwordInput" type="password" placeholder="اكتب كلمة السر هنا" aria-label="كلمة المرور" autocomplete="off" required>
+<button class="primary full" type="submit">افتح الهدية ❤️</button>
+</form>
+<p class="hint">تلميح: سر بينا ❤️</p>
+<p class="error" id="error" role="alert">مش هي دي كلمة السر 🙈 جرّب تاني يا حبيبي.</p>
+</div>
+</section>
+<section id="gift">
+<div class="kicker">الهدية اتفتحت! <span>✨</span></div>
+<h1>يا حبيبي ❤️</h1>
+<p class="subtitle">افتح الظرف عشان تقرأ رسالتك، والأغنية هتظهر معاه 🎀</p>
+<div class="envelope-wrap">
+<div class="envelope" id="envelope" role="button" tabindex="0" aria-label="افتح الظرف" aria-expanded="false">
+<div class="letter"><strong>إلى أغلى الناس</strong><span>💌</span></div>
+<div class="seal">❤</div>
+</div>
+</div>
+<button class="primary" id="openBtn">افتح الظرف 💌</button>
+<section class="message" id="message" aria-live="polite">
+<h2>يا حبيبي ❤️</h2>
+<p>وجودك في حياتي بيخلي ايامي وحياتي حلوه الكلام مش هيكفي. أتمنى أشوفك دايمًا مبسوط، و نعمل ذكريات حلوة سوا. بحبك يا أجمل حاجة في أيامي 💗.</p>
+<div class="controls">
+<button class="secondary" data-note="كل يوم معاك ممكن يبقى ذكرى حلوة جديدة. 💕">رسالة صغيرة 💌</button>
+<button class="secondary" data-note="أتمنى ضحكتك تفضل منوّرة أيامك، وتلاقي دايمًا أسباب تفرح. 🌷">أمنية ليك 🌷</button>
+<button class="secondary" data-note="أحلى حاجة إننا نفضل نعمل ذكريات لطيفة نفتكرها ونبتسم. ✨">ذكرى جاية ✨</button>
+</div>
+<p id="extraNote" aria-live="polite"></p>
+</section>
+<section class="song" id="song">
+<h3>أغنية الهدية 🎶💗</h3>
+<iframe class="player-frame" id="youtubePlayer" title="أغنية الهدية على يوتيوب" src="https://www.youtube-nocookie.com/embed/wiScIdVnTPY?playsinline=1&rel=0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+<p class="note">لو الأغنية ما اشتغلتش تلقائيًا، اضغط تشغيل داخل مشغّل يوتيوب. بعض المتصفحات تمنع التشغيل التلقائي.</p>
+</section>
+</section>
+<footer>مع كل الحب 💗 صُنعت مخصوص عشان ترسم ابتسامة</footer>
+</section></main>
+<script>
+/* تنبيه: كلمة المرور في ملف HTML حماية بسيطة وليست حماية قوية؛ يمكن كشفها من مصدر الصفحة. */
+const CORRECT_PASSWORD = 'احبك';
+const lockScreen=document.getElementById('lockScreen');
+const passwordForm=document.getElementById('passwordForm');
+const passwordInput=document.getElementById('passwordInput');
+const errorBox=document.getElementById('error');
+const gift=document.getElementById('gift');
+passwordForm.addEventListener('submit',function(e){
+  e.preventDefault();
+  if(passwordInput.value.trim()===CORRECT_PASSWORD){
+    lockScreen.style.display='none';
+    gift.classList.add('unlocked');
+    errorBox.classList.remove('show');
+  }else{
+    errorBox.classList.add('show');
+    passwordInput.value='';
+    passwordInput.focus();
+  }
+});
+const envelope=document.getElementById('envelope');
+const openBtn=document.getElementById('openBtn');
+const message=document.getElementById('message');
+const song=document.getElementById('song');
+let opened=false;
+function openGift(){
+  if(opened)return;
+  opened=true;
+  envelope.classList.add('open');
+  envelope.setAttribute('aria-expanded','true');
+  openBtn.textContent='اتفتحت الرسالة 💗';
+  message.classList.add('show');
+  song.classList.add('show');
+  setTimeout(()=>song.scrollIntoView({behavior:'smooth',block:'nearest'}),450);
+}
+openBtn.addEventListener('click',openGift);
+envelope.addEventListener('click',openGift);
+envelope.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();openGift();}});
+document.querySelectorAll('[data-note]').forEach(btn=>btn.addEventListener('click',()=>{document.getElementById('extraNote').textContent=btn.dataset.note;}));
+const hearts=document.getElementById('hearts');
+for(let i=0;i<22;i++){
+  const h=document.createElement('span');h.className='heart';h.textContent=['♥','♡','💗','💕'][i%4];
+  h.style.left=(Math.random()*100)+'%';h.style.fontSize=(14+Math.random()*22)+'px';
+  h.style.animationDuration=(9+Math.random()*13)+'s';h.style.animationDelay=(-Math.random()*18)+'s';
+  hearts.appendChild(h);
+}
+</script>
+</body>
+</html>
